@@ -1,0 +1,17 @@
+<h1><%= @listing.address %></h1>
+
+<% if @listing.available? %>
+  <p>This property is available!</p>
+  <p><%= @listing.user.first_name %> details here</p>
+  <% else %>
+  <p>This property is not currently available. Soz, lol.</p>
+<% end %>
+
+
+
+<% if @listing.images.present? %>
+  <h2>Pictures of the property:</h2>
+  <% @listing.images.each do |image| %>
+    <%= image_tag image.image %>
+  <% end %>
+<% end %>

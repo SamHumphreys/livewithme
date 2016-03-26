@@ -1,0 +1,12 @@
+<h1><%= @user.first_name %> <%= @user.surname %></h1>
+
+<% if @user == @current_user %>
+  <h2>Your details are:</h2>
+  <p>Name: <%= @user.first_name %></p>
+
+<% else %>
+  <p>Their name: <%= @user.surname %></p>
+
+
+
+<% end %>

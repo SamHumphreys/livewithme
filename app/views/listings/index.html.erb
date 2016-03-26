@@ -1,0 +1,7 @@
+<h1>Listings#index</h1>
+
+<% @listings.each do |listing| %>
+  <% if listing.available? %>
+    <p><%= link_to listing.address, listing  %></p>
+  <% end %>
+<% end %>

@@ -8,6 +8,26 @@
 </head>
 <body>
 
+  <nav>
+    <%= link_to 'Home', root_path %>
+    <% if @current_user.present? %>
+      <% if @current_user.is_admin? %>
+        <%= link_to "All users", users_path %>
+      <% end %>
+      <%= link_to "Edit Profile", users_edit_path %>
+      <%= link_to "Logout #{@current_user.email}", login_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+  </nav>
+
+  <% if flash[:error].present? %>
+    <h2 class="error">
+      <%= flash[:error] %>
+    </h2>
+  <% end %>
+
 <%= yield %>
 
 </body>

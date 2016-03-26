@@ -1,0 +1,7 @@
+<h1>Pages#welcome</h1>
+
+ <% if session[:user_id].present? %>
+  You are logged in as <%= @current_user.email %>
+ <% end %>
+
+ <h2>See available listings <%= link_to 'here', listings_path %></h2>
