@@ -1,13 +1,19 @@
+<h1>Listing#Show</h1>
 <h1><%= @listing.address %></h1>
 
-<% if @listing.available? %>
-  <p>This property is available!</p>
-  <p><%= @listing.user.first_name %> details here</p>
+<% if @listing.user == @current_user %>
+  <p>You are the landlord for this listing.</p>
+  <p>Click <%= link_to 'here', edit_listing_path %> to edit the listing details.</p>
+  <p>Click <%= link_to 'here', new_image_path %> to add images to this listing</p>
+<% else %>
+  <% if @listing.available? %>
+    <p>This property is available!</p>
+    <p>Property details: <%= @listing.details %></p>
+    <p>Click <%= link_to 'here', user_path(@listing.user_id) %> to view and contact the landlord.</p>
   <% else %>
-  <p>This property is not currently available. Soz, lol.</p>
+    <p>This property is not currently available. Click <%= link_to 'here', listings_path %> to return to the search page.</p>
+  <% end %>
 <% end %>
-
-
 
 <% if @listing.images.present? %>
   <h2>Pictures of the property:</h2>

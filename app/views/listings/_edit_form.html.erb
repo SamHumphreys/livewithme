@@ -1,0 +1,22 @@
+<%= form_for @listing do |f| %>
+
+  <fieldset>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :suburb %>
+    <%= f.text_field :suburb %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :available, "Is this property available?" %>
+    <%= f.check_box :available %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

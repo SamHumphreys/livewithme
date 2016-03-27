@@ -1,11 +1,30 @@
+<h1>User Show</h1>
 <h1><%= @user.first_name %> <%= @user.surname %></h1>
 
 <% if @user == @current_user %>
   <h2>Your details are:</h2>
   <p>Name: <%= @user.first_name %></p>
 
+  <% if @user.listings.present? %>
+    <p>Your current listings are:</p>
+    <% @listings.each do |listing| %>
+      <% if listing.user == @current_user %>
+        <p><%= listing.address %>, currently
+            <% if listing.available == true %>
+              available
+            <% else %>
+              unavailable
+            <% end %>
+           <%= link_to 'Edit', edit_listing_path(listing) %> <%= link_to 'Delete', listing_path(listing), :method => :delete %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <p>Create a new listing by clicking <%= link_to 'here', new_listing_path %></p>
+  
+
 <% else %>
-  <p>Their name: <%= @user.surname %></p>
+  <p>Their name: <%= @user.first_name %></p>
 
 
 

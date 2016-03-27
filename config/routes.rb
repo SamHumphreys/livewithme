@@ -9,6 +9,7 @@
 #              PATCH  /users/:id(.:format)         users#update
 #              PUT    /users/:id(.:format)         users#update
 #              DELETE /users/:id(.:format)         users#destroy
+
 #      reviews GET    /reviews(.:format)           reviews#index
 #              POST   /reviews(.:format)           reviews#create
 #   new_review GET    /reviews/new(.:format)       reviews#new
@@ -17,6 +18,7 @@
 #              PATCH  /reviews/:id(.:format)       reviews#update
 #              PUT    /reviews/:id(.:format)       reviews#update
 #              DELETE /reviews/:id(.:format)       reviews#destroy
+
 #     listings GET    /listings(.:format)          listings#index
 #              POST   /listings(.:format)          listings#create
 #  new_listing GET    /listings/new(.:format)      listings#new
@@ -25,6 +27,7 @@
 #              PATCH  /listings/:id(.:format)      listings#update
 #              PUT    /listings/:id(.:format)      listings#update
 #              DELETE /listings/:id(.:format)      listings#destroy
+
 #       images GET    /images(.:format)            images#index
 #              POST   /images(.:format)            images#create
 #    new_image GET    /images/new(.:format)        images#new

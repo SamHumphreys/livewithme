@@ -9,6 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  suburb     :text
+#  details    :text
 #
 
 class Listing < ActiveRecord::Base
