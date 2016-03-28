@@ -3,13 +3,20 @@ class ImagesController < ApplicationController
   end
 
   def new
-    raise "hell"
-    image = Image.new
+    flash.keep
+    @image = Image.new
   end
 
   def create
     image = Image.create image_params
-    image.update :listing_id => @listing
+    image.update :listing_id => flash[:id]
+    redirect_to listing_path(flash[:id])
+  end
+
+  def destroy
+    image = Image.find params[:id]
+    image.destroy
+    redirect_to listing_path(flash[:id])
   end
 
   def edit

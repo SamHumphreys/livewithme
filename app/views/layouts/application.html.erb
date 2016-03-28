@@ -11,18 +11,26 @@
   <nav>
     <%= link_to 'Home', root_path %>
     <% if @current_user.present? %>
-      <% if @current_user.is_admin? %>
-        <%= link_to "All users", users_path %>
-      <% end %>
       <%= link_to "View Listings", listings_path %>
       <%= link_to "View Profile", user_path(@current_user) %>
       <%= link_to "Edit Profile", users_edit_path %>
-      <%= link_to "Logout #{@current_user.email}", login_path, :method => :delete %>
+      <%= link_to "Logout", login_path, :method => :delete %>
     <% else %>
       <%= link_to "Sign Up", signup_path %>
       <%= link_to "Login", login_path %>
     <% end %>
+    <%= link_to 'About', '/pages/about' %>
   </nav>
+
+  <% if @current_user.present? %>
+    <p>You are currently logged in as <%= @current_user.email %>. <%= link_to 'Not you?', '/login', :method => :delete %></p>
+    <% if @current_user.is_admin? %>
+      <nav class="admin">
+        <%= link_to "All users", users_path %>
+        <%= link_to "View Listings", listings_path %>
+      </nav>
+    <% end %>
+  <% end %>
 
   <% if flash[:error].present? %>
     <h2 class="error">

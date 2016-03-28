@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find params[:id]
+    flash[:id] = @listing.id
   end
 
   def create
@@ -24,7 +25,7 @@ class ListingsController < ApplicationController
   def update
     listing = Listing.find params[:id]
     listing.update listing_params
-    redirect_to user_path(@current_user)
+    redirect_to listing
   end
 
   def destroy

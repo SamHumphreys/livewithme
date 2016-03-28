@@ -1,5 +1,16 @@
 <h1>All Users: TOP SECRET</h1>
 
 <% @users.each do |user| %>
-  <p><%= user.email %> since <%= user.created_at %></p>
+  <p>
+    <% if user.is_admin? %>
+      ADMIN
+    <% end %>
+    <%= user.first_name %>, <%= user.email %> ||
+    <%= link_to 'View', user_path(user) %>
+    <% if user.is_admin? %>
+    <% else %>
+      <%= link_to 'Delete', user_path(user), :method => :delete %>
+    <% end %>
+
+  </p>
 <% end %>

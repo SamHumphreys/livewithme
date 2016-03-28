@@ -1,9 +1,10 @@
 <h1>User Show</h1>
-<h1><%= @user.first_name %> <%= @user.surname %></h1>
 
 <% if @user == @current_user %>
+  <%= image_tag @user.image, :class => 'thumb' %>
   <h2>Your details are:</h2>
-  <p>Name: <%= @user.first_name %></p>
+  <p>Name: <%= @user.first_name %> <%= @user.surname %></p>
+  <p></p>
 
   <% if @user.listings.present? %>
     <p>Your current listings are:</p>
@@ -15,16 +16,22 @@
             <% else %>
               unavailable
             <% end %>
-           <%= link_to 'Edit', edit_listing_path(listing) %> <%= link_to 'Delete', listing_path(listing), :method => :delete %></p>
+            <%= link_to 'View', listing_path(listing) %>
+            <%= link_to 'Edit', edit_listing_path(listing) %>
+            <%= link_to 'Delete', listing_path(listing), :method => :delete %></p>
       <% end %>
     <% end %>
   <% end %>
 
   <p>Create a new listing by clicking <%= link_to 'here', new_listing_path %></p>
-  
+
 
 <% else %>
-  <p>Their name: <%= @user.first_name %></p>
+  <%= image_tag @user.image, :class => 'thumb' %>
+  <p>Landlord name: <%= @user.first_name %></p>
+  <p>Landlord email: <%= @user.email %></p>
+  <p>Landlord phone: <%= @user.phone %></p>
+  <p>Social media link: <%= @user.social_media %></p>
 
 
 

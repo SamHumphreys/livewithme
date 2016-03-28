@@ -1,23 +1,31 @@
 <h1>Listing#Show</h1>
 <h1><%= @listing.address %></h1>
 
-<% if @listing.user == @current_user %>
-  <p>You are the landlord for this listing.</p>
-  <p>Click <%= link_to 'here', edit_listing_path %> to edit the listing details.</p>
-  <p>Click <%= link_to 'here', new_image_path %> to add images to this listing</p>
-<% else %>
+  <% if @listing.user == @current_user %>
+    <p>You are the landlord for this listing.</p>
+  <% end %>
   <% if @listing.available? %>
-    <p>This property is available!</p>
-    <p>Property details: <%= @listing.details %></p>
-    <p>Click <%= link_to 'here', user_path(@listing.user_id) %> to view and contact the landlord.</p>
+    <p>This listing is currently available.</p>
   <% else %>
-    <p>This property is not currently available. Click <%= link_to 'here', listings_path %> to return to the search page.</p>
+    <p>This listing is currently unavailable.</p>
   <% end %>
-<% end %>
+  <p>Property details: <%= @listing.details %></p>
+  <% if @listing.user == @current_user || @current_user.is_admin? %>
+    <p>Click <%= link_to 'here', edit_listing_path %> to edit the listing details and availability.</p>
+    <p>Click <%= link_to 'here', listing_path, :method => :delete %> to delete the listing.</p>
+    <p>Click <%= link_to 'here', new_image_path, flash[:@listing] %> to add images to this listing.</p>
+  <% end %>
 
-<% if @listing.images.present? %>
-  <h2>Pictures of the property:</h2>
-  <% @listing.images.each do |image| %>
-    <%= image_tag image.image %>
+  <% if @listing.user != @current_user || @current_user.is_admin? %>
+    <p>Click <%= link_to 'here', user_path(@listing.user_id) %> to view and contact the landlord.</p>
   <% end %>
-<% end %>
+
+  <% if @listing.images.present? %>
+    <h2>Pictures of the property:</h2>
+    <% @listing.images.each do |image| %>
+      <p><%= image_tag image.image %></p>
+      <% if @listing.user == @current_user || @current_user.is_admin? %>
+        <p><%= link_to 'Delete this image', image_path(image), :method => :delete %></p>
+      <% end %>
+    <% end %>
+  <% end %>

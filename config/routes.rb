@@ -41,6 +41,7 @@
 Rails.application.routes.draw do
 
   root :to => 'pages#welcome'
+  get '/pages/about' => 'pages#about'
 
   get 'users/edit' => 'users#edit'
 

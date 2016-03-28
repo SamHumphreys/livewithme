@@ -1,8 +1,19 @@
 <h1>Listings#index</h1>
 
 <% @listings.each do |listing| %>
-  <% if listing.available? %>
-    <p><%= link_to listing.address, listing  %></p>
+  <% if @current_user.is_admin? %>
+    <p>
+      <%= link_to listing.address, listing  %>
+      <% if listing.available? %>
+        available
+      <% else %>
+        not available
+      <% end %>
+    </p>
+  <% else %>
+    <% if listing.available? %>
+      <p><%= link_to listing.address, listing  %></p>
+    <% end %>
   <% end %>
 <% end %>
 

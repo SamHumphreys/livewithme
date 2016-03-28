@@ -1,2 +1,9 @@
-<h1>Images#new</h1>
-<p>Find me in app/views/images/new.html.erb</p>
+<h1>Images for </h1>
+
+<%= form_for @image do |f|%>
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.url_field :image, :required => true %>
+  </fieldset>
+  <%= f.submit %>
+<% end %>
