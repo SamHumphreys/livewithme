@@ -1,6 +1,18 @@
 class ListingsController < ApplicationController
   def index
+    def get_suburbs
+      suburbs = ['All']
+      @listings.each do |listing|
+        if listing.available?
+          suburbs.push(listing.suburb)
+        end
+      end
+      suburbs.uniq!
+      return suburbs
+    end
+
     @listings = Listing.all.order(:suburb)
+    @suburbs = get_suburbs
   end
 
   def new
