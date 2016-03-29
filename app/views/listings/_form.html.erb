@@ -1,8 +1,8 @@
 <%= form_for @listing do |f| %>
 
   <fieldset>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.label :address, 'Street Address' %>
+    <%= f.text_field :address, :autofocus => true %>
   </fieldset>
   <fieldset>
     <%= f.label :suburb %>

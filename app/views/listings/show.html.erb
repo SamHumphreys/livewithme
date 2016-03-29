@@ -11,9 +11,9 @@
   <% end %>
   <p>Property details: <%= @listing.details %></p>
   <% if @listing.user == @current_user || @current_user.is_admin? %>
+    <p>Click <%= link_to 'here', new_image_path, flash[:@listing] %> to add images to this listing.</p>
     <p>Click <%= link_to 'here', edit_listing_path %> to edit the listing details and availability.</p>
     <p>Click <%= link_to 'here', listing_path, :method => :delete %> to delete the listing.</p>
-    <p>Click <%= link_to 'here', new_image_path, flash[:@listing] %> to add images to this listing.</p>
   <% end %>
 
   <% if @listing.user != @current_user || @current_user.is_admin? %>

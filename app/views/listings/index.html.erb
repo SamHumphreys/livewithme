@@ -1,9 +1,9 @@
-<h1>Listings#index</h1>
+<h1>Current listings</h1>
 
 <% @listings.each do |listing| %>
   <% if @current_user.is_admin? %>
     <p>
-      <%= link_to listing.address, listing  %>
+      <%= link_to listing.address, listing  %> <%= listing.suburb %>
       <% if listing.available? %>
         available
       <% else %>
@@ -12,7 +12,7 @@
     </p>
   <% else %>
     <% if listing.available? %>
-      <p><%= link_to listing.address, listing  %></p>
+      <p><%= link_to listing.address, listing  %> <%= listing.suburb %></p>
     <% end %>
   <% end %>
 <% end %>

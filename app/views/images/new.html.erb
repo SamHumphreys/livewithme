@@ -3,7 +3,7 @@
 <%= form_for @image do |f|%>
   <fieldset>
     <%= f.label :image %>
-    <%= f.url_field :image, :required => true %>
+    <%= f.url_field :image, :required => true, :autofocus => true %>
   </fieldset>
   <%= f.submit %>
 <% end %>
