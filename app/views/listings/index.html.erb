@@ -1,9 +1,5 @@
 <h1>Current listings</h1>
 
-<% if session[:user_id].present == false %>
-  <% redirect_to login_path %>
-<% end %>
-
   <p>
     <%= label_tag 'Select Suburb:' %>
     <%= select_tag 'Suburb', options_for_select(@suburbs, @suburbs[0]), :class => 'select' %>
@@ -12,14 +8,15 @@
 
 <% @listings.each do |listing| %>
   <% if @current_user.is_admin? %>
-    <p>
-      <%= link_to listing.address, listing  %> <%= listing.suburb %>
-      <% if listing.available? %>
-        available
-      <% else %>
-        not available
+
+      <%= content_tag :p, class: "All #{listing.suburb}" do %>
+        <%= link_to listing.address, listing %> <%= listing.suburb %>
+        <% if listing.available? %>
+          available
+        <% else %>
+          not available
+        <% end %>
       <% end %>
-    </p>
   <% else %>
     <% if listing.available? %>
       <%= content_tag :p, class: "All #{listing.suburb}" do %>
