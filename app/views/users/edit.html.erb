@@ -1,29 +1,49 @@
-<h1>Edit User</h1>
+<div class="content">
 
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <p class="font1 lineabove">Edit User</p>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-1"></div>
+  <p class="col-lg-10 blurb">Make your profile look more attractive to someone you might end up living with! <br>
+  Add a link to your Facebook or Twitter accounts so people can see that you're not a robot, and upload a picture of yourself if you feel like it. Potential renters will be more likely to contact you if they think you actually exist!</p>
+  </div>
 
-  <%= f.label :image %>
-  <%= f.url_field :image %>
+  <%= form_for @user, html:{multipart: true} do |f| %>
+      <div class="row">
+        <%= f.label :email, :class => 'col-lg-4' %>
+        <%= f.email_field :email, :class => 'col-lg-6' %>
+      </div>
 
-  <!-- <%= f.label :password %>
-  <%= f.password_field :password %>
+      <div class="row">
+        <%= f.label :image, 'Upload a profile picture', :class => 'col-lg-4' %>
+        <%= f.file_field :image, :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %> -->
+      <div class="row">
+        <%= f.label :first_name, :class => 'col-lg-4' %>
+        <%= f.text_field :first_name, :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+      <div class="row">
+        <%= f.label :surname, :class => 'col-lg-4' %>
+        <%= f.text_field :surname, :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.label :surname %>
-  <%= f.text_field :surname %>
+      <div class="row">
+        <%= f.label :phone, :class => 'col-lg-4' %>
+        <%= f.text_field :phone, :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
+      <div class="row">
+        <%= f.label :social_media, :class => 'col-lg-4' %>
+        <%= f.url_field :social_media, :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.label :social_media %>
-  <%= f.url_field :social_media %>
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <%= f.submit :class => 'col-lg-6' %>
+      </div>
 
-  <%= f.submit %>
-<% end %>
+    </div>
+  <% end %>
+</div>

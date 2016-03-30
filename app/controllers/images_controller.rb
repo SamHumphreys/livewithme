@@ -8,8 +8,8 @@ class ImagesController < ApplicationController
   end
 
   def create
-    image = Image.create image_params
-    image.update :listing_id => flash[:id]
+    req = Cloudinary::Uploader.upload(params[:image]["image"])
+    Image.create(:image => req["url"], :listing_id => flash[:id])
     redirect_to listing_path(flash[:id])
   end
 

@@ -1,5 +1,16 @@
-<h1>Pages#welcome</h1>
+<div class="content">
+  <div class="pageName">
+    <p class="lineabove">Welcome to</p>
+    <p class="linebelow font1">LIVEWITHME</p>
+  </div>
 
- <% if session[:user_id].present? %>
-  You are logged in as <%= @current_user.email %>
- <% end %>
+  <% if @current_user.present? %>
+
+    <h2>Click <%= link_to 'here', listings_path %> to search listings, or <%= link_to 'here', user_path(@current_user.id) %> to see your profile.</h2>
+
+  <% else %>
+
+    <h2>Please <%= link_to 'Sign Up', '/signup' %> or <%= link_to 'Log In', '/login'  %> to continue</h2>
+
+  <% end %>
+</div>

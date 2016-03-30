@@ -1,0 +1,70 @@
+// font-family: 'Calligraffitti', cursive;
+
+body {
+  background: #beeeef;
+  font-size: 2em;
+}
+
+.font1 {
+  font-family: 'Calligraffitti', cursive;
+  transform: rotate(-10deg);
+}
+
+.lineabove {
+  margin-top: 1em;
+  font-size: 3em;
+}
+
+.linebelow {
+  margin-top: .25em;
+  margin-bottom: 1em;
+  font-size: 4.5em;
+  font-weight: bold;
+}
+
+.submit {
+  text-align: center;
+}
+
+.main {
+  max-width: 960px;
+  margin-top: 2em;
+  background: gainsboro;
+}
+
+.navbar {
+  background: pink;
+}
+
+.mainNav {
+  text-align: left;
+  background: grey;
+}
+
+.userNav {
+  text-align: right;
+  background: grey;
+}
+
+.adminNav {
+  background: red;
+  text-align: center;
+}
+
+.notYou {
+  text-align: center;
+
+  background: green;
+}
+
+.content {
+  text-align: center;
+}
+
+.listings {
+  text-align: left;
+}
+
+.blurb {
+  margin-bottom: 1em;
+}

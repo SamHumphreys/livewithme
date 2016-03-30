@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
     def get_suburbs
       suburbs = ['All']
       @listings.each do |listing|
-        if listing.available?
+        if listing.available? || @current_user.is_admin?
           suburbs.push(listing.suburb)
         end
       end
@@ -20,6 +20,7 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    check_allow
     @listing = Listing.find params[:id]
   end
 
@@ -49,6 +50,11 @@ class ListingsController < ApplicationController
   private
   def listing_params
     params.require(:listing).permit(:available, :address, :suburb, :user_id, :details)
+  end
+
+  def check_allow
+    listing = Listing.find params[:id]
+    redirect_to root_path unless @current_user.id == listing.user.id || (@current_user.present? && @current_user.is_admin)
   end
 
 end

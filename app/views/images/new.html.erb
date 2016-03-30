@@ -1,9 +1,9 @@
 <h1>Images for </h1>
 
-<%= form_for @image do |f|%>
+<%= form_for @image, html: {multipart: true} do |f|%>
   <fieldset>
-    <%= f.label :image %>
-    <%= f.url_field :image, :required => true, :autofocus => true %>
+    <%= f.label :image, 'Upload image' %>
+    <%= f.file_field :image, :autofocus => true, :required => true %>
   </fieldset>
   <%= f.submit %>
 <% end %>

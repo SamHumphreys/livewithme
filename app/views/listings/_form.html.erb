@@ -1,21 +1,21 @@
 <%= form_for @listing do |f| %>
-
-  <fieldset>
-    <%= f.label :address, 'Street Address' %>
-    <%= f.text_field :address, :autofocus => true %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :suburb %>
-    <%= f.text_field :suburb %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :details %>
-    <%= f.text_area :details %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :available, "Is this property available?" %>
-    <%= f.check_box :available %>
-  </fieldset>
-  <%= f.submit %>
-
+  <div class="container-fluid">
+    <div class="row">
+      <%= f.label :address, 'Street Address', :class => 'col-lg-4'%>
+      <%= f.text_field :address, :autofocus => true, :class => 'col-lg-6' %>
+    </div>
+    <div class="row">
+      <%= f.label :suburb %>
+      <%= f.text_field :suburb %>
+    </div>
+    <div class="row">
+      <%= f.label :details %>
+      <%= f.text_area :details %>
+    </div>
+    <div class="row">
+      <%= f.label :available, "Is this property available?" %>
+      <%= f.check_box :available %>
+    </div>
+    <%= f.submit %>
+  </div>
 <% end %>
