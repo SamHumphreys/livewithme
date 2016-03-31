@@ -1,9 +1,17 @@
-<h1>Images for </h1>
+<div class="content container-fluid">
 
-<%= form_for @image, html: {multipart: true} do |f|%>
-  <fieldset>
-    <%= f.label :image, 'Upload image' %>
-    <%= f.file_field :image, :autofocus => true, :required => true %>
-  </fieldset>
-  <%= f.submit %>
-<% end %>
+  <p class="row font1 linealone">Upload an image</p>
+
+  <%= form_for @image, html: {multipart: true} do |f|%>
+    <div class="row">
+      <fieldset>
+        <%= f.label :image, 'Upload image', :class => 'col-lg-4' %>
+        <%= f.file_field :image, :required => true, :class => 'col-lg-6'%>
+      </fieldset>
+    </div>
+    <div class="col-lg-4"></div>
+    <%= f.submit 'Add image', :class=> "col-lg-6 blurb"%>
+  <% end %>
+
+
+</div>

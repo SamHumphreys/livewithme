@@ -13,8 +13,11 @@ body {
 }
 
 .font1 {
+  position: relative;
+  z-index: -1;
   font-family: 'Calligraffitti', cursive;
   transform: rotate(-10deg);
+  margin: 0 auto;
 }
 
 .lineabove {
@@ -65,7 +68,10 @@ body {
 
 .notYou {
   text-align: center;
-  z-index: 2;
+}
+
+a:hover {
+  font-weight: bold;
 }
 
 .content {
@@ -75,7 +81,7 @@ body {
 }
 
 .blurb {
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 .left {
