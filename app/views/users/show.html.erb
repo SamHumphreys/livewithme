@@ -29,7 +29,7 @@
                   <% if listing.user == @current_user %>
                   <div class="row">
                     <p class="nomarginbelow">
-                      <%= listing.address %>, currently
+                      <%= listing.address %> <%= listing.suburb %>, currently
                         <% if listing.available == true %>
                           available
                         <% else %>
