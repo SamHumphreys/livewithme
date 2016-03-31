@@ -36,6 +36,8 @@
       </div>
     </div>
 
+    <% if @current_user.present? %>
+    <div class="content">
     <div class="container-fluid">
       <% if @current_user.present? && @current_user.is_admin? %>
         <div class="row">
@@ -49,12 +51,12 @@
         </div>
       <% end %>
 
-      <% if @current_user.present? %>
         <div class="row">
           <p class="notYou col-xs-12">You are currently logged in as <%= @current_user.email %>. <%= link_to 'Not you?', '/login', :method => :delete %></p>
         </div>
-      <% end %>
     </div>
+    </div>
+    <% end %>
 
     <% if flash[:error].present? %>
       <h2 class="error">

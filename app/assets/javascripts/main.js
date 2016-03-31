@@ -10,13 +10,13 @@ $('.listingSearch').on("click", function() {
 });
 
 $('.showlistings').on('click', function() {
-
+  var listings = "Click to see your listings.";
+  var details = "Click to see your details.";
   $('.own').toggle();
-
-  if ( $('.showlistings').text() === 'Click here to see your listings.' ) {
-    $('.showlistings').html('Click here to see your details.');
-  } else {
-    $('.showlistings').html('Click here to see your listings.');
+  if ( $('.showlistings').text() === listings ) {
+    $('.showlistings').html(details);
+  } else if ( $('.showlistings').text() === details ) {
+    $('.showlistings').html(listings);
   }
 });
 

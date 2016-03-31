@@ -65,9 +65,8 @@
     </div>
 
     <div class="container-fluid edits">
-      <p class="nomarginbelow">Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
-      <p class="nomarginbelow">Click <%= link_to 'here', '' %> to update your password.</p>
-      <p class="nomarginbelow">Click <%= link_to 'here', new_listing_path %> to create a new listing.</p>
+      <p>Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
+      <p>Click <%= link_to 'here', new_listing_path %> to create a new listing.</p>
     </div>
 
 
@@ -84,7 +83,7 @@
             <p>Landlord name: <%= @user.first_name %></p>
             <p>Landlord email: <%= @user.email %></p>
             <p>Landlord phone: <%= @user.phone %></p>
-            <p>Social media link: <%= @user.social_media %></p>
+            <p>Social media link: <%= link_to @user.social_media, @user.social_media, :target => '_blank' %></p>
           </div>
         </div>
         <div class="container-fluid col-lg-6">

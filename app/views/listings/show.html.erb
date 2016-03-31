@@ -43,7 +43,7 @@
             <div class="row right">
               <%= image_tag image.image %>
               <% if @listing.user == @current_user || @current_user.is_admin? %>
-                <p><%= link_to 'Delete this image', image_path(image), :method => :delet %></p>
+                <p><%= link_to 'Delete this image', image_path(image), :method => :delete %></p>
               <% end %>
             </div>
           <% end %>
