@@ -8,15 +8,15 @@ are used for event listeners on the suburb filter and to toggle between user det
 and listing details.
 
 The following gems were used in addition to the standard Rails v4.2.6 gems:
-  Development:
-    annotate
-    pry-rails
+>Development:
+>>annotate
+>>pry-rails
 
-  Production:
-    cloudinary
-    bcrypt
-    bootstrap-sass
-    rails_12factor
+>Production:
+>>cloudinary
+>>bcrypt
+>>bootstrap-sass
+>>rails_12factor
 
 ## App purpose
 Livewithme is designed to be a simple way for people to find flatmates for short
@@ -25,8 +25,11 @@ details for themselves, and then view available property listings and contact th
 landlords for that property. Users can also create property listings which will
 be visible if they have updated the property to be available.
 
-Users can edit and delete the listings they have created, and add and delete
+If a user goes to their profile page they can see a list of their own listings,
+and can edit and delete the listings they have created, and add and delete
 images for their listings.
+
+A user will be able to see available listings only on the listing#index page.
 
 When a user or listing is deleted from the database a :dependent => destroy in
 the models means that any ghost listings or images are deleted as well.
