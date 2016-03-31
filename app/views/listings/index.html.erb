@@ -1,6 +1,6 @@
 <div class="content">
 
-  <p class="lineabove font1">Current Listings</p>
+  <p class="linealone font1">Current Listings</p>
 
     <p>
       <%= label_tag 'Select Suburb:' %>
@@ -8,7 +8,7 @@
       <%= button_tag 'Search', :class => 'listingSearch' %>
     </p>
 
-  <div class="listings">
+  <div>
     <% @listings.each do |listing| %>
       <% if @current_user.is_admin? %>
 

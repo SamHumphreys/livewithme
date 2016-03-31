@@ -1,45 +1,113 @@
-<div class="listings">
+<div class="content">
   <% if @user == @current_user %>
-    <h2>Your details are:</h2>
-    <p>Name: <%= @user.first_name %> <%= @user.surname %></p>
-    <% if @user.is_admin? %>
-      <p>You are an admin on this site. With great power comes great power.</p>
-    <% end %>
-    <p>Email: <%= @user.email %></p>
-    <p>Phone: <%= @user.phone %></p>
-    <p>Social Media Link: <%= link_to @user.social_media, @user.social_media%></p>
-    <p>Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
-    <% if @user.image.present? %>
-      <%= image_tag @user.image, :class => 'medium' %>
-    <% end %>
+    <div class="container-fluid">
+      <p class="font1 linealone">Your details are:</p>
+    </div>
 
-    <% if @user.listings.present? %>
-      <p>Your current listings are:</p>
-      <% @listings.each do |listing| %>
-        <% if listing.user == @current_user %>
-          <p><%= listing.address %>, currently
-              <% if listing.available == true %>
-                available
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid  col-lg-6">
+          <div class="row left">
+            <div class="own details">
+              <p>Name: <%= @user.first_name %> <%= @user.surname %></p>
+              <p>Email: <%= @user.email %></p>
+              <% if @user.phone.present? %>
+                <p>Phone: <%= @user.phone %></p>
               <% else %>
-                unavailable
+                <p><%= link_to 'Add a phone number so people can contact you.', edit_user_path %></p>
               <% end %>
-              <%= link_to 'View', listing_path(listing) %>
-              <%= link_to 'Edit', edit_listing_path(listing) %>
-              <%= link_to 'Delete', listing_path(listing), :method => :delete %></p>
-        <% end %>
-      <% end %>
-    <% end %>
+              <% if @user.social_media.present? %>
+                <p>Social Media Link: <%= link_to @user.social_media, @user.social_media, :target => '_blank' %></p>
+              <% else %>
+                <p><%= link_to "Add a link to your Twitter or Facebook so people can see you're real.", edit_user_path %></p>
+              <% end %>
+            </div>
 
-    <p>Create a new listing by clicking <%= link_to 'here', new_listing_path %></p>
+            <% if @user.listings.present? %>
+              <div class="own listings container-fluid">
+                <% @listings.each do |listing| %>
+                  <% if listing.user == @current_user %>
+                  <div class="row">
+                    <p>
+                      <%= listing.address %>, currently
+                        <% if listing.available == true %>
+                          available
+                        <% else %>
+                          unavailable
+                        <% end %>
+                    </p>
+                  </div>
+                  <div class="row centered">
+                    <p>
+                      <%= link_to 'View', listing_path(listing) %>
+                      <%= link_to 'Edit', edit_listing_path(listing) %>
+                      <%= link_to 'Delete', listing_path(listing), :method => :delete %>
+                    </p>
+                  </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <p class="showlistings centered">Click here to see your listings.</p>
+
+            <% else %>
+              <p class="centered">You don't have any listings.</p>
+            <% end %>
+          </div>
+
+        </div>
+
+        <div class="container-fluid right col-lg-6">
+          <% if @user.image.present? %>
+            <%= image_tag @user.image %>
+          <% else %>
+            <p>Upload an image to increase your profile.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid edits">
+      <div class="row">
+        <p>Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
+      </div>
+      <div class="row">
+        <p>Click <%= link_to 'here', '' %> to update your password.</p>
+      </div>
+      <div class="row">
+        <p>Click <%= link_to 'here', new_listing_path %> to create a new listing. </p>
+      </div>
+    </div>
+
+
 
 
   <% else %>
-    <%= image_tag @user.image, :class => 'thumb' %>
-    <p>Landlord name: <%= @user.first_name %></p>
-    <p>Landlord email: <%= @user.email %></p>
-    <p>Landlord phone: <%= @user.phone %></p>
-    <p>Social media link: <%= @user.social_media %></p>
+    <div class="container-fluid">
+      <p class="font1 linealone">Landlord details:</p>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid col-lg-6">
+          <div class="row left">
+            <p>Landlord name: <%= @user.first_name %></p>
+            <p>Landlord email: <%= @user.email %></p>
+            <p>Landlord phone: <%= @user.phone %></p>
+            <p>Social media link: <%= @user.social_media %></p>
+          </div>
+        </div>
+        <div class="container-fluid col-lg-6">
+          <div class="row right">
+            <%= image_tag @user.image %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid edits">
+      <p>Click <%= link_to 'here', listings_path %> to go back to all listings.</p>
 
+
+
+    </div>
 
 
   <% end %>

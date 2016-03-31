@@ -11,40 +11,48 @@
 <body>
 
   <div class="main container">
-    <div class="navbar row">
-      <nav class="mainNav col-sm-6">
-        <%= link_to 'Home', root_path %>
-        <%= link_to 'About', '/pages/about' %>
-        <% if @current_user.present? %>
-        <%= link_to "View Listings", listings_path %>
-        <% end %>
-      </nav>
 
-      <nav class="userNav col-sm-6">
-        <% if @current_user.present? %>
-          <%= link_to "View Profile", user_path(@current_user) %>
-          <%= link_to "Edit Profile", users_edit_path %>
-          <%= link_to "Logout", login_path, :method => :delete %>
-        <% else %>
-          <%= link_to "Sign Up", signup_path %>
-          <%= link_to "Login", login_path %>
-        <% end %>
-      </nav>
+    <div class="container-fluid">
+      <div class="navbar row">
+
+        <nav class="mainNav col-sm-6">
+          <%= link_to 'Home', root_path %>
+          <%= link_to 'About', '/pages/about' %>
+          <% if @current_user.present? %>
+          <%= link_to "View Listings", listings_path %>
+          <% end %>
+        </nav>
+
+        <nav class="userNav col-sm-6">
+          <% if @current_user.present? %>
+            <%= link_to "View Profile", user_path(@current_user) %>
+            <%= link_to "Edit Profile", users_edit_path %>
+            <%= link_to "Logout", login_path, :method => :delete %>
+          <% else %>
+            <%= link_to "Sign Up", signup_path %>
+            <%= link_to "Login", login_path %>
+          <% end %>
+        </nav>
+      </div>
     </div>
 
-    <div>
+    <div class="container-fluid">
       <% if @current_user.present? && @current_user.is_admin? %>
-        <nav class="adminNav col-xs-12">
-          <span>
-            Admin menu:
-            <%= link_to "All users", users_path %>
-            <%= link_to "View Listings", listings_path %>
-          </span>
-        </nav>
+        <div class="row">
+          <nav class="adminNav col-xs-12">
+            <span>
+              Admin menu:
+              <%= link_to "All users", users_path %>
+              <%= link_to "View Listings", listings_path %>
+            </span>
+          </nav>
+        </div>
       <% end %>
 
       <% if @current_user.present? %>
-        <p class="notYou col-xs-12">You are currently logged in as <%= @current_user.email %>. <%= link_to 'Not you?', '/login', :method => :delete %></p>
+        <div class="row">
+          <p class="notYou col-xs-12">You are currently logged in as <%= @current_user.email %>. <%= link_to 'Not you?', '/login', :method => :delete %></p>
+        </div>
       <% end %>
     </div>
 

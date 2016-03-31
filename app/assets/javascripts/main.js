@@ -9,6 +9,17 @@ $('.listingSearch').on("click", function() {
   $(suburb).show();
 });
 
+$('.showlistings').on('click', function() {
+
+  $('.own').toggle();
+
+  if ( $('.showlistings').text() === 'Click here to see your listings.' ) {
+    $('.showlistings').html('Click here to see your details.');
+  } else {
+    $('.showlistings').html('Click here to see your listings.');
+  }
+});
+
 
 
 

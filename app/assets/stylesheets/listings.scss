@@ -1,4 +1,11 @@
-// font-family: 'Calligraffitti', cursive;
+.container-fluid {
+  border: 1px solid yellow;
+}
+.row {
+  border: 1px solid black;
+}
+
+
 
 body {
   background: #beeeef;
@@ -22,6 +29,12 @@ body {
   font-weight: bold;
 }
 
+.linealone {
+  padding-top: .6em;
+  font-size: 3em;
+  margin-bottom: .75em;
+}
+
 .submit {
   text-align: center;
 }
@@ -29,21 +42,20 @@ body {
 .main {
   max-width: 960px;
   margin-top: 2em;
-  background: gainsboro;
 }
 
 .navbar {
-  background: pink;
+  border: .25em solid black;
+  border-radius: .5em;
+
 }
 
 .mainNav {
   text-align: left;
-  background: grey;
 }
 
 .userNav {
   text-align: right;
-  background: grey;
 }
 
 .adminNav {
@@ -53,18 +65,45 @@ body {
 
 .notYou {
   text-align: center;
-
-  background: green;
+  z-index: 2;
 }
 
 .content {
   text-align: center;
-}
-
-.listings {
-  text-align: left;
+  border: .25em solid black;
+  border-radius: .5em;
 }
 
 .blurb {
   margin-bottom: 1em;
+}
+
+.left {
+  margin: 0 .5em;
+  text-align: left;
+  padding-left: 1em;
+  border: .25em solid black;
+  border-radius: .5em;
+}
+
+.right>img {
+  max-width: 100%;
+  border: .25em solid black;
+  border-radius: .5em;
+}
+
+.edits {
+  margin-top: .5em;
+}
+
+.navbar>nav {
+  padding-top: .25em;
+}
+
+.listings {
+  display: none;
+}
+
+.centered {
+  text-align: center;
 }

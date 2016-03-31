@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get '/pages/about' => 'pages#about'
 
   get 'users/edit' => 'users#edit'
+  get 'users/password' => 'users#password'
 
   get '/signup' => 'users#new'
   get '/login' => 'session#new'
