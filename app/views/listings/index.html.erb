@@ -1,17 +1,17 @@
 <div class="content">
-
-  <p class="linealone font1">Current Listings</p>
-
+  <div class="container-fluid">
+    <p class="linealone font1">Current Listings</p>
+  </div>
+  <div class="container-fluid leftandright">
     <p>
       <%= label_tag 'Select Suburb:' %>
       <%= select_tag 'Suburb', options_for_select(@suburbs, @suburbs[0]), :class => 'select' %>
       <%= button_tag 'Search', :class => 'listingSearch' %>
     </p>
 
-  <div>
-    <% @listings.each do |listing| %>
-      <% if @current_user.is_admin? %>
-
+    <div>
+      <% @listings.each do |listing| %>
+        <% if @current_user.is_admin? %>
           <%= content_tag :p, class: "All #{listing.suburb}" do %>
             <%= link_to listing.address, listing %> <%= listing.suburb %>
             <% if listing.available? %>
@@ -20,18 +20,17 @@
               not available
             <% end %>
           <% end %>
-      <% else %>
-        <% if listing.available? %>
-          <%= content_tag :p, class: "All #{listing.suburb}" do %>
-            <%= link_to listing.address, listing %> <%= listing.suburb %>
+        <% else %>
+          <% if listing.available? %>
+            <%= content_tag :p, class: "All #{listing.suburb}" do %>
+              <%= link_to listing.address, listing %> <%= listing.suburb %>
+            <% end %>
           <% end %>
-
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-
-  <p1><%= link_to 'Add New Listing', new_listing_path %></p1>
-
-
+  <div class="edits">
+    <p><%= link_to 'Add New Listing', new_listing_path %></p>
+  </div>
 </div>

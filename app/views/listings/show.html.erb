@@ -1,31 +1,55 @@
-<h1>Listing#Show</h1>
-<h1><%= @listing.address %></h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <h2 class="col-lg-10 alignleft">Listing details for:</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <h1 class="col-lg-9 alignleft"><%= @listing.address %> <%= @listing.suburb %></h1>
+    </div>
+  </div>
 
-  <% if @listing.user == @current_user %>
-    <p>You are the landlord for this listing.</p>
-  <% end %>
-  <% if @listing.available? %>
-    <p>This listing is currently available.</p>
-  <% else %>
-    <p>This listing is currently unavailable.</p>
-  <% end %>
-  <p>Property details: <%= @listing.details %></p>
-  <% if @listing.user == @current_user || @current_user.is_admin? %>
-    <p>Click <%= link_to 'here', new_image_path, flash[:@listing] %> to add images to this listing.</p>
-    <p>Click <%= link_to 'here', edit_listing_path %> to edit the listing details and availability.</p>
-    <p>Click <%= link_to 'here', listing_path, :method => :delete %> to delete the listing.</p>
-  <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container-fluid col-lg-6">
+        <div class="row left">
+          <% if @listing.user == @current_user %>
+            <p>You are the landlord for this listing.</p>
+          <% end %>
 
-  <% if @listing.user != @current_user || @current_user.is_admin? %>
-    <p>Click <%= link_to 'here', user_path(@listing.user_id) %> to view and contact the landlord.</p>
-  <% end %>
+          <% if @listing.available? %>
+            <p>This listing is currently available.</p>
+          <% else %>
+            <p>This listing is currently unavailable.</p>
+          <% end %>
 
-  <% if @listing.images.present? %>
-    <h2>Pictures of the property:</h2>
-    <% @listing.images.each do |image| %>
-      <p><%= image_tag image.image %></p>
-      <% if @listing.user == @current_user || @current_user.is_admin? %>
-        <p><%= link_to 'Delete this image', image_path(image), :method => :delete %></p>
-      <% end %>
-    <% end %>
-  <% end %>
+          <p>Property details: <%= @listing.details %></p>
+          <% if @listing.user == @current_user || @current_user.is_admin? %>
+            <p class="nomarginbelow">Click <%= link_to 'here', new_image_path, flash[:@listing] %> to add images to this listing.</p>
+            <p class="nomarginbelow">Click <%= link_to 'here', edit_listing_path %> to update the listing details.</p>
+            <p class="nomarginbelow">Click <%= link_to 'here', listing_path, :method => :delete %> to delete the listing.</p>
+          <% end %>
+
+          <% if @listing.user != @current_user || @current_user.is_admin? %>
+            <p>Click <%= link_to 'here', user_path(@listing.user_id) %> to view and contact the landlord.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="container-fluid right col-lg-6">
+        <% if @listing.images.present? %>
+          <% @listing.images.each do |image| %>
+            <div class="row right">
+              <%= image_tag image.image %>
+              <% if @listing.user == @current_user || @current_user.is_admin? %>
+                <p><%= link_to 'Delete this image', image_path(image), :method => :delet %></p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="edits"></div>
+</div>

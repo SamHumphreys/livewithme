@@ -28,7 +28,7 @@
                 <% @listings.each do |listing| %>
                   <% if listing.user == @current_user %>
                   <div class="row">
-                    <p>
+                    <p class="nomarginbelow">
                       <%= listing.address %>, currently
                         <% if listing.available == true %>
                           available
@@ -36,9 +36,7 @@
                           unavailable
                         <% end %>
                     </p>
-                  </div>
-                  <div class="row centered">
-                    <p>
+                    <p class="centered">
                       <%= link_to 'View', listing_path(listing) %>
                       <%= link_to 'Edit', edit_listing_path(listing) %>
                       <%= link_to 'Delete', listing_path(listing), :method => :delete %>
@@ -47,7 +45,7 @@
                   <% end %>
                 <% end %>
               </div>
-              <p class="showlistings centered">Click here to see your listings.</p>
+              <p class="showlistings centered">Click to see your listings.</p>
 
             <% else %>
               <p class="centered">You don't have any listings.</p>
@@ -67,15 +65,9 @@
     </div>
 
     <div class="container-fluid edits">
-      <div class="row">
-        <p>Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
-      </div>
-      <div class="row">
-        <p>Click <%= link_to 'here', '' %> to update your password.</p>
-      </div>
-      <div class="row">
-        <p>Click <%= link_to 'here', new_listing_path %> to create a new listing. </p>
-      </div>
+      <p class="nomarginbelow">Click <%= link_to 'here', edit_user_path %> to edit your profile.</p>
+      <p class="nomarginbelow">Click <%= link_to 'here', '' %> to update your password.</p>
+      <p class="nomarginbelow">Click <%= link_to 'here', new_listing_path %> to create a new listing.</p>
     </div>
 
 

@@ -1,20 +1,13 @@
-.container-fluid {
-  border: 1px solid yellow;
-}
-.row {
-  border: 1px solid black;
-}
-
-
 
 body {
-  background: #beeeef;
+  background: url(/assets/background.gif);
+  background-size: cover;
   font-size: 2em;
 }
 
 .font1 {
   position: relative;
-  z-index: -1;
+  z-index: -0;
   font-family: 'Calligraffitti', cursive;
   transform: rotate(-10deg);
   margin: 0 auto;
@@ -48,6 +41,7 @@ body {
 }
 
 .navbar {
+  background: #beeeef;
   border: .25em solid black;
   border-radius: .5em;
 
@@ -70,14 +64,21 @@ body {
   text-align: center;
 }
 
+a {
+  position: relative;
+  z-index: 999;
+}
+
 a:hover {
   font-weight: bold;
 }
 
 .content {
+  background: #beeeef;
   text-align: center;
   border: .25em solid black;
   border-radius: .5em;
+  margin-bottom: 1em;
 }
 
 .blurb {
@@ -98,6 +99,12 @@ a:hover {
   border-radius: .5em;
 }
 
+.leftandright {
+  border: .25em solid black;
+  border-radius: .5em;
+  margin: 0 1em 0 1em;
+}
+
 .edits {
   margin-top: .5em;
 }
@@ -110,6 +117,14 @@ a:hover {
   display: none;
 }
 
+.alignleft {
+  text-align: left;
+}
+
 .centered {
   text-align: center;
+}
+
+.nomarginbelow {
+  margin-bottom: 0;
 }
